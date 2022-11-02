@@ -55,7 +55,7 @@ if "p" in args and not "f" in args and sys.stdout.isatty():
 
 grpc_options = [('grpc.max_receive_message_length', 32 * 1024 * 1024)]  # 32MB
 
-with grpc.insecure_channel('unix:///var/snap/microk8s/common/run/containerd.sock', options=grpc_options) as channel:
+with grpc.insecure_channel('unix:///var/run/containerd/containerd.sock', options=grpc_options) as channel:
 
     containersv1 = containers_pb2_grpc.ContainersStub(channel)
     imagesv1 = images_pb2_grpc.ImagesStub(channel)
