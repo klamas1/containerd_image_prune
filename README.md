@@ -2,11 +2,11 @@
 
 As you can expect, this small utility is doing for a microk8s / containerd environment the same operation that docker system prune does : it search for images unused by container to list them and/or delete them to recover space
 
-You will need a python3 running environnment and the containerd library (pip install containerd). This should also install grpc dependancies.
+You will need a python3 running environnment and the containerd library (python3 -m pip install containerd). This should also install grpc dependancies.
 
 if you chmod +x the utility, just run it with :
 
-```./microk8s_prune.py [ciuspf]```
+```./ctr_prune_unusage_images.py [ciuspf]```
 
 Parameters:
 - c : List containers and associated images (line output prefixed with C:)
@@ -22,4 +22,4 @@ The ctr utility to manage containerd do not provide such feature and considering
 
 In the meantime, this utility will solve the problem 😊
 
-This utility could be used in non microk8s containerd environment, just replace the namespace which is harcoded to ```k8s.io``` and reference the appropriate sock in place of the microk8s one ``unix:///var/snap/microk8s/common/run/containerd.sock``
+This utility could be used in non microk8s containerd environment, just replace the namespace which is harcoded to ```k8s.io``` and reference the appropriate sock in place of the microk8s one ``unix:///var/run/containerd/containerd.sock``
